@@ -11,9 +11,10 @@ namespace Xadrezconsole
     {
         public static void printTabuleiro (Tabuleiro tab)
         {
-            for (int i=0; i<tab.linha; i++)
+            for (int i=0; i<tab.linhas; i++)
             {
-                for (int j = 0; j < tab.coluna; j++)
+                Console.Write(8 - i + " ");
+                for (int j = 0; j < tab.colunas; j++)
                 {
                     if (tab.peca(i, j) == null)
                     {
@@ -21,11 +22,28 @@ namespace Xadrezconsole
                     }
                     else
                     {
-                        Console.Write(tab.peca(i, j) + " ");
+                        imprimir(tab.peca(i, j));
+                        Console.Write(" ");
                     }
                 }
                 Console.WriteLine();
                 }
+            Console.WriteLine("  A B C D E F G H");
             }
+        public static void imprimir (Peca peca)
+        {
+            if (peca.cor == Cor.Branca)
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Write(peca);
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.Write(peca);
+                Console.ResetColor();
+            }
+        }
         }
 }

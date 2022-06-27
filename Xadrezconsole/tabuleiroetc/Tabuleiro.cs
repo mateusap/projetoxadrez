@@ -3,33 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using xadrez;
 
 namespace tabuleiroetc
 {
     internal class Tabuleiro
     {
-        public int linha { get; set; }
-        public int coluna { get; set; }
+        public int linhas { get; set; }
+        public int colunas { get; set; }
         private Peca[,] pecas;
 
-        public Tabuleiro(int linha, int coluna)
+        public Tabuleiro(int linhas, int colunas)
         {
-            this.linha = linha;
-            this.coluna = coluna;
-            pecas = new Peca[linha, coluna];
+            this.linhas = linhas;
+            this.colunas = colunas;
+            pecas = new Peca[linhas, colunas];
         }
         public Peca peca ( int linha, int coluna)
         {
             return pecas[linha, coluna];
         }
-        public bool casaOcupada (Posicao pos)
+        public Peca peca (Posicao pos)
+        {
+            return pecas[pos.linha, pos.coluna];
+        }
+        public bool casaOcupada(Posicao pos)
         {
             validar(pos);
             return peca(pos) != null;
-        }
-        private object peca(Posicao pos)
-        {
-            throw new NotImplementedException();
         }
         public void posicionar (Peca p, Posicao pos)
         {
@@ -42,7 +43,7 @@ namespace tabuleiroetc
         }
         public bool posValida (Posicao pos)
         {
-            if (pos.linha<0 || pos.coluna<0 || pos.linha >= linha || pos.coluna >= coluna)
+            if (pos.linha<0 || pos.coluna<0 || pos.linha >= linhas || pos.coluna >= colunas)
             {
                 return false;
             }
@@ -54,6 +55,11 @@ namespace tabuleiroetc
             {
                 throw new TabuleiroException("Posição inválida!");
             }
+        }
+
+        internal void posicionar(Torre torre)
+        {
+            throw new NotImplementedException();
         }
     }
 }
