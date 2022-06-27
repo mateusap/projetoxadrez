@@ -20,5 +20,9 @@ namespace tabuleiroetc
             this.qtmovimento = qtmovimento = 0;
             this.tab = tab;
         }
+        public void incrementarmovimento()
+        {
+            qtmovimento++;
+        }
     }
 }
