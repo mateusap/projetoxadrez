@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace tabuleiroetc
 {
-    internal class Peca
+    internal abstract class Peca
     {
         public Posicao posicao { get; set; }
         public Cor cor { get; protected set; }
@@ -24,5 +24,6 @@ namespace tabuleiroetc
         {
             qtmovimento++;
         }
+        public abstract bool[,] movimentoPossivel();
     }
 }

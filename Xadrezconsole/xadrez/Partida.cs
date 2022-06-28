@@ -31,7 +31,7 @@ namespace xadrez
         private void posicionar()
         {
             tab.posicionar(new Torre(tab, Cor.Branca), new PosicaoXadrez('c', 1).toPosicao());
-            tab.posicionar(new Rainha(tab, Cor.Preta), new PosicaoXadrez('d',4).toPosicao());
+            tab.posicionar(new Rei(tab, Cor.Preta), new PosicaoXadrez('d',4).toPosicao());
         }
     }
 }

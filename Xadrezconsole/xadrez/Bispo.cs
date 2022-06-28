@@ -7,7 +7,7 @@ using tabuleiroetc;
 
 namespace xadrez
 {
-    internal class Bispo : Peca
+    internal abstract class Bispo : Peca
     {
         public Bispo(Tabuleiro tab, Cor cor) : base(tab, cor)
         {

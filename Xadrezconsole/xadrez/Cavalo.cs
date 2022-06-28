@@ -7,7 +7,7 @@ using tabuleiroetc;
 
 namespace xadrez
 {
-    internal class Cavalo : Peca
+    internal abstract class Cavalo : Peca
     {
         public Cavalo(Tabuleiro tab, Cor cor) : base(tab, cor)
         {
