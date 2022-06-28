@@ -8,11 +8,7 @@ while (!partida.terminada)
     try
     {
         Console.Clear();
-        Tela.printTabuleiro(partida.tab);
-        Console.WriteLine();
-        Console.WriteLine("Turno:" + partida.turno);
-        Console.WriteLine("Jogador atual:" + partida.jogadorAtual);
-        Console.WriteLine();
+        Tela.imprimirPartida(partida);
         Console.Write("Origem:");
         Posicao origem = Tela.lerPosicao().toPosicao();
         partida.validarOrigem(origem);
