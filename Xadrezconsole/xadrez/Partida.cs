@@ -9,9 +9,9 @@ namespace xadrez
 {
     internal class Partida
     {
-        public Tabuleiro tab { get; set; }
-        private int turno;
-        private Cor jogadorAtual;
+        public Tabuleiro tab { get; private set; }
+        public int turno { get; private set; }
+        public Cor jogadorAtual { get; private set; }
         public bool terminada { get; private set; }
         public Partida()
         {
@@ -25,8 +25,48 @@ namespace xadrez
         {
             Peca p = tab.retirar(origem);
             p.incrementarmovimento();
-            Peca capturada = tab.retirar(destino);
             tab.posicionar(p, destino);
+        }
+
+        public void realizaJogada(Posicao origem, Posicao destino)
+        {
+            movimenta(origem, destino);
+            turno++;
+            mudaJogador();
+        }
+        public void validarOrigem (Posicao pos)
+        {
+            if (tab.peca(pos)==null)
+            {
+                throw new TabuleiroException("Não existe peça na posição escolhida, aperte enter para continuar.");
+            }
+            if (jogadorAtual != tab.peca(pos).cor)
+            {
+                throw new TabuleiroException("A peça escolhida não é sua, aperte enter para continuar.");
+            }
+            if (!tab.peca(pos).existemovimento())
+            {
+                throw new TabuleiroException("A peça não pode se mover, aperte enter para continuar.");
+            }
+        }
+        public void validarDestino (Posicao origem, Posicao destino)
+        {
+            if (!tab.peca(origem).podeMover(destino))
+            {
+                throw new TabuleiroException("Destino inválido, aperte enter para continuar.");
+            }
+        }
+
+        private void mudaJogador()
+        {
+            if (jogadorAtual == Cor.Branca)
+            {
+                jogadorAtual = Cor.Preta;
+            }
+            else
+            {
+                jogadorAtual = Cor.Branca;
+            }
         }
         private void posicionar()
         {

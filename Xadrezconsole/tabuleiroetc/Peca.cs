@@ -24,6 +24,26 @@ namespace tabuleiroetc
         {
             qtmovimento++;
         }
+        public bool existemovimento()
+        {
+            bool[,] matriz = movimentoPossivel();
+            for (int i=0; i<tab.linhas; i++)
+            {
+                for (int j=0; j<tab.colunas; j++)
+                {
+                    if (matriz[i, j])
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        public bool podeMover(Posicao pos)
+        {
+            return movimentoPossivel()[pos.linha, pos.coluna];
+        }
+
         public abstract bool[,] movimentoPossivel();
     }
 }
