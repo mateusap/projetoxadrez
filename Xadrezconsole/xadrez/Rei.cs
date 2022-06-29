@@ -9,12 +9,12 @@ namespace xadrez
 {
     internal class Rei : Peca
     {
-        public Rei(Tabuleiro tab, Cor cor) : base(tab, cor)
+        public Rei(Tabuleiro tab, Cor cor, Partida partida) : base(tab, cor)
         {
         }
         public override string ToString()
         {
-            return "Re";
+            return "R";
         }
         private bool podeMover (Posicao pos)
         {
