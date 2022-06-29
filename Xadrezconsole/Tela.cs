@@ -17,8 +17,20 @@ namespace Xadrezconsole
             imprimirCapturadas(partida);
             Console.WriteLine();
             Console.WriteLine("Turno:" + partida.turno);
-            Console.WriteLine("Jogador atual:" + partida.jogadorAtual);
-            Console.WriteLine();
+            if (!partida.terminada)
+            {
+                Console.WriteLine("Jogador atual:" + partida.jogadorAtual);
+                if (partida.xeque)
+                {
+                    Console.WriteLine("XEQUE!");
+                }
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("XEQUE MATE!");
+                Console.WriteLine("Vendedor: "+ partida.jogadorAtual);
+            }
         }
         public static void imprimirCapturadas(Partida partida)
         {

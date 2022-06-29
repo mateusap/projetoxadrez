@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using xadrez;
+
 
 namespace tabuleiroetc
 {
@@ -67,11 +67,6 @@ namespace tabuleiroetc
             {
                 throw new TabuleiroException("Posição inválida!");
             }
-        }
-
-        internal void posicionar(Torre torre)
-        {
-            throw new NotImplementedException();
         }
     }
 }

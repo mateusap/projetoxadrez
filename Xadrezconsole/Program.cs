@@ -30,3 +30,5 @@ while (!partida.terminada)
         Console.ReadLine();
     }
 }
+Console.Clear();
+Tela.imprimirPartida(partida);

@@ -14,8 +14,8 @@ namespace xadrez
 
         public PosicaoXadrez(char coluna, int linha)
         {
-            this.linha = linha;
             this.coluna = coluna;
+            this.linha = linha;
         }
         public Posicao toPosicao()
         {

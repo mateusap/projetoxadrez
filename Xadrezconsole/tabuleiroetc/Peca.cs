@@ -24,6 +24,10 @@ namespace tabuleiroetc
         {
             qtmovimento++;
         }
+        public void decrementarmovimento()
+        {
+            qtmovimento--;
+        }
         public bool existemovimento()
         {
             bool[,] matriz = movimentoPossivel();
@@ -39,7 +43,7 @@ namespace tabuleiroetc
             }
             return false;
         }
-        public bool podeMover(Posicao pos)
+        public bool existeMovimento(Posicao pos)
         {
             return movimentoPossivel()[pos.linha, pos.coluna];
         }
